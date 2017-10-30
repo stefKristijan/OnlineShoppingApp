@@ -18,23 +18,25 @@ public class MainController {
 	@RequestMapping(value = { "/", "/index", "/home" })
 	public String home(ModelMap model) {
 
+		model.addAttribute("pageTitle", "Home");
 		model.addAttribute("categories", this.CategoryDao.getCategoryList());
 		model.addAttribute("greeting", "Welcome to my e-commerce site");
-		return "home";
+		return "page";
 	}
 
 	@RequestMapping("/about")
 	public String about(ModelMap model) {
-
+		model.addAttribute("pageTitle", "About us");
 		model.addAttribute("greeting", "Welcome to my e-commerce site");
-		return "about";
+		return "page";
 	}
 
 	@RequestMapping("/contact")
 	public String contact(ModelMap model) {
 
+		model.addAttribute("pageTitle", "Contact us");
 		model.addAttribute("greeting", "Welcome to my e-commerce site");
-		return "contact";
+		return "page";
 	}
 
 	/*
@@ -45,7 +47,7 @@ public class MainController {
 
 		model.addAttribute("categories", this.CategoryDao.getCategoryList());
 		model.addAttribute("greeting", "Welcome to my e-commerce site");
-		return "home";
+		return "page";
 	}
 
 	@RequestMapping("/show/category/{id}/products")
@@ -54,6 +56,6 @@ public class MainController {
 		category = this.CategoryDao.getCategory(id);
 		model.addAttribute("categories", this.CategoryDao.getCategoryList());
 		model.addAttribute("greeting", "Welcome to my e-commerce site");
-		return "home";
+		return "page";
 	}
 }
